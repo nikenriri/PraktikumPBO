@@ -18,7 +18,7 @@ public class main {
         do{
         System.out.println("_________INPUT_________");
         System.out.println("1. BALOK");
-        System.out.println("2. KERUCUT");
+        System.out.println("2. TABUNG");
         System.out.println("3. EXIT");
         System.out.print("pilih : "); pilih = input.nextInt();
         
