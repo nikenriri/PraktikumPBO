@@ -16,7 +16,7 @@ public class main {
          
        
         do{
-        System.out.println("_________INPUT_________");
+        System.out.println("======= MENU UTAMA =======");
         System.out.println("1. BALOK");
         System.out.println("2. TABUNG");
         System.out.println("3. EXIT");
@@ -31,7 +31,7 @@ public class main {
                 
                 Balok balok = new Balok(tinggiBalok,panjang,lebar);
                 
-                System.out.println("________OUTPUT_________");
+                System.out.println("======= HASIL =======");
                 System.out.println("LUAS PERSEGI            : " + balok.luas());
                 System.out.println("KELILING PERSEGI        : " + balok.keliling());
                 System.out.println("VOLUME                  : " + balok.volume());
@@ -45,7 +45,7 @@ public class main {
                 
                 Tabung tabung = new Tabung(tinggiTabung,jari);
                 
-                System.out.println("________OUTPUT_________");
+                System.out.println("======= HASIL =======");
                 System.out.println("LUAS LINGKARAN          : " + tabung.luas());
                 System.out.println("KELILING LINGKARAN      : " + tabung.keliling());
                 System.out.println("VOLUME TABUNG          : " + tabung.volume());
