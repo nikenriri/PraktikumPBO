@@ -4,10 +4,13 @@ package beasiswa;
  *
  * @author niken riri
  */
+import beasiswa.kuis.BeasiswaPelajar;
+import beasiswa.kuis.BeasiswaMahasiswa;
 import java.util.Scanner;
+
 public class main {
     public static void main(String[] args) {
-       Scanner input = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("===== FORM PENDAFTARAN BEASISWA =====");
         System.out.println("1. Beasiswa Pelajar");
         System.out.println("2. Beasiswa Mahasiswa");
@@ -16,22 +19,30 @@ public class main {
         
         System.out.println("===== FORM PENDAFTARAN =====");
         Scanner data = new Scanner(System.in);
-        System.out.println("Nama : ");
+        System.out.print("Nama : ");
         String nama = data.next();
-        System.out.println("Usia : ");
+        System.out.print("Usia : ");
         String usia = data.next();
-        System.out.println("Jenis Program Beasiswa : ");
+        System.out.print("Jenis Program Beasiswa : ");
         String jenisbeas = data.next();
-
+        
+        System.out.print("Nilai Struktur dan Konten Esai : ");
+        int nStruktur = data.nextInt();
+        System.out.print("Nilai Teknik Visualisasi : ");
+        int nVisual = data.nextInt();
+        System.out.print("Nilai Kemampuan Design Thinking : ");
+        int nDesign = data.nextInt();
+        
+        System.out.print("Nilai Struktur dan Konten Jurnal : ");
+        int nJurnal = data.nextInt();
+        System.out.print("Nilai Relevansi Data : ");
+        int nRelev = data.nextInt();
+        System.out.print("Nilai Kemampuan Problem Solving : ");
+        int nProb = data.nextInt();
+        
         if(pilih == 1){
-            System.out.println("Nilai Struktur dan Konten Esai : ");
-            int nStruktur = data.nextInt();
-            System.out.println("Nilai Teknik Visualisasi : ");
-            int nVisual = data.nextInt();
-            System.out.println("Nilai Kemampuan Design Thinking : ");
-            int nDesign = data.nextInt();
-            
-            BeasiswaMahasiswa beasiswaMahasiswa = new BeasiswaMahasiswa(nama,usia,jenisbeas,nStruktur,nVisual,nDesign);
+
+            BeasiswaPelajar beasiswaPelajar = new BeasiswaPelajar(nama,usia,nStruktur,nVisual,nDesign,nJurnal,nRelev,nProb);
             do{
                 System.out.println("=== Menu ===");
                 System.out.println("1. Edit");
@@ -41,15 +52,15 @@ public class main {
                 int pilihMenu = input.nextInt();
                 
                 if(pilihMenu == 1){
-                    System.out.println("Nilai Struktur dan Konten Esai : ");
-                    beasiswaMahasiswa.inputStruktur(input.nextInt());
-                    System.out.println("Nilai Teknik Visualisasi : ");
-                    beasiswaMahasiswa.inputVisual(input.nextInt());
-                    System.out.println("Nilai Kemampuan Design Thinking : ");
-                    beasiswaMahasiswa.inputDesign(input.nextInt());
+                    System.out.print("Nilai Struktur dan Konten Esai : ");
+                    beasiswaPelajar.inputStruktur(input.nextInt());
+                    System.out.print("Nilai Teknik Visualisasi : ");
+                    beasiswaPelajar.inputVisual(input.nextInt());
+                    System.out.print("Nilai Kemampuan Design Thinking : ");
+                    beasiswaPelajar.inputDesign(input.nextInt());
                 }else if(pilihMenu == 2){
-                    System.out.println("Hasil Nilai : " + beasiswaMahasiswa.hitungNilai());
-                    System.out.println("Keterangan  : " + beasiswaMahasiswa.keterangan());
+                    System.out.println("Hasil Nilai : " + beasiswaPelajar.hitungNilai());
+                    System.out.println("Keterangan  : " + beasiswaPelajar.keterangan());
                 }else{
                     break;
                 }
@@ -58,14 +69,8 @@ public class main {
             
             
         }else if(pilih == 2){
-            System.out.println("Nilai Struktur dan Konten Jurnal : ");
-            int nJurnal = data.nextInt();
-            System.out.println("Nilai Relevansi Data : ");
-            int nRelev = data.nextInt();
-            System.out.println("Nilai Kemampuan Problem Solving : ");
-            int nProb = data.nextInt();
-            
-            BeasiswaPelajar beasiswaPelajar = new BeasiswaPelajar(nama,usia,jenisbeas,nJurnal,nRelev,nProb);
+
+            BeasiswaMahasiswa beasiswaMahasiswa = new BeasiswaMahasiswa(nama,usia,nStruktur,nVisual,nDesign,nJurnal,nRelev,nProb);
             do{
                 System.out.println("=== Menu ===");
                 System.out.println("1. Edit");
@@ -75,15 +80,15 @@ public class main {
                 int pilihMenu = input.nextInt();
                 
                 if(pilihMenu == 1){
-                    System.out.println("Nilai Struktur dan Konten Esai : ");
-                    beasiswaPelajar.inputJurnal(input.nextInt());
-                    System.out.println("Nilai Teknik Visualisasi : ");
-                    beasiswaPelajar.inputRelev(input.nextInt());
-                    System.out.println("Nilai Kemampuan Design Thinking : ");
-                    beasiswaPelajar.inputProb(input.nextInt());
+                    System.out.print("Nilai Struktur dan Konten Esai : ");
+                    beasiswaMahasiswa.inputJurnal(input.nextInt());
+                    System.out.print("Nilai Teknik Visualisasi : ");
+                    beasiswaMahasiswa.inputRelev(input.nextInt());
+                    System.out.print("Nilai Kemampuan Design Thinking : ");
+                    beasiswaMahasiswa.inputProb(input.nextInt());
                 }else if(pilihMenu == 2){
-                    System.out.println("Hasil Nilai : " + beasiswaPelajar.hitungNilai1());
-                    System.out.println("Keterangan  : " + beasiswaPelajar.keterangan());
+                    System.out.println("Hasil Nilai : " + beasiswaMahasiswa.hitungNilai1());
+                    System.out.println("Keterangan  : " + beasiswaMahasiswa.keterangan());
                 }else{
                     break;
                 }
