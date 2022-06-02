@@ -34,7 +34,7 @@ public class movieView extends JFrame{
         tabel = new JTable(dtm);
         scrollPane = new JScrollPane(tabel);
         
-        setTitle("Data Aslab");
+        setTitle("Data Movie");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setVisible(true);
         setResizable(false);
