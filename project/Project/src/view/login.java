@@ -6,6 +6,7 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import inc.config;
 import javax.swing.JOptionPane;
+import view.kasir;
 
 /**
  *
@@ -16,6 +17,7 @@ public class login extends javax.swing.JFrame {
     Connection konek;
     Statement st;
     ResultSet rs;
+    public static int id;
     
     private void login(){
         try{
@@ -28,8 +30,13 @@ public class login extends javax.swing.JFrame {
             rs = st.executeQuery(sql);
             
             if(rs.next()){
-                if(rs.getString("status")=="1"){
-                JOptionPane.showMessageDialog(null, "Login Berhasil !");
+                if(rs.getInt("status")==1){
+                    id = rs.getInt("id_kasir");
+                    String akses = rs.getString("akses");
+                    if(akses.equals("kasir")){
+                        kasir k = new kasir();
+                        k.show();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(null, "Maaf akun anda terblokir");
                 }
@@ -39,6 +46,10 @@ public class login extends javax.swing.JFrame {
         }catch(Exception e){
             System.out.println(e.getMessage());
         }
+    }
+    
+    public static int getId(){
+        return id;
     }
 
     public login() {
